@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body.locked {
+    overflow: hidden;
+}
 html {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -90,6 +93,9 @@ li {
     color: #000;
     cursor: pointer;
 }
+.btn a{
+    color: #000;
+}
 /* мобильное меню */
 .btn-mobile {
     display: none;
@@ -137,7 +143,7 @@ li {
     color: #FFFFFF;
     margin-bottom: 15px;
 }
-.list_mobile.active {
+.list_mobile.active_m {
 	transform: translateX(0);
 }
 .menu__close {
@@ -296,6 +302,7 @@ li {
     text-align: center;
     cursor: pointer;
     margin-left: 30px;
+    color: #000;
 }
 .content__wrap-conteiner_text {
     font-size: 24px;
@@ -343,8 +350,6 @@ li {
     border-radius:50%;
 }
 .slider .content {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
     animation-name: fade;
     animation-duration: 1.5s;
 }
@@ -430,7 +435,7 @@ li {
 }
 .video-play {
     position: absolute;
-    width: 242;
+    width: 242px;
     height: 247px;
     top: 50%;
     left: 50%;
@@ -510,6 +515,9 @@ li {
 .customers {
     padding: 35px 0; 
 }
+.active-t {
+    display: none;
+}
 .tabs__list {
     display: flex;
     justify-content: center;
@@ -541,7 +549,7 @@ li {
     max-width: 100%;
     height: auto;
 }
-.active {
+.active_m {
     display: none;
 }
 .active-btn {
@@ -677,3 +685,159 @@ li {
     line-height: 28px;
     color: #8A8A8A;
 }
+
+/* pop_up */
+
+.modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    pointer-events: none;
+  }
+    
+  .modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+    
+  .modal__bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+    
+  .modal-body {
+    padding: 25px 34px 40px;
+    background-color: #fff;
+    max-width: 470px;
+    max-height: 100%;
+    margin: auto;
+    overflow: auto;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #888;
+    width: 15px;
+    height: 15px;
+  }
+  .modal__form-input {
+    display: block;
+    width: 100%;
+    background: #efefef;
+    height: 49px;
+    box-shadow: 1px 1px rgb(0 0 0 / 7%) inset;
+    margin: 0 0 20px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 50px;
+  }
+  .modal-callback__title {
+    font-size: 34px;
+    text-align: left;
+    text-transform: uppercase;
+    color: #313131;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 120%;
+  }
+  .modal-callback__text {
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+  }
+  .modal__btn {
+    background-color: #fc0;
+    color: #000;
+    border-radius: 50px;
+    height: 48px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    -webkit-transition: all .5s;
+    transition: all .2s;
+    margin: 0;
+    padding: 4px 27px;
+    border: none;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .modal__checbox {
+    min-width: 20px;
+    height: 20px;
+    background-color: #fff;
+    margin-right: 20px;
+  }
+  .politic {
+    display: flex;
+    align-items: flex-start;
+  }
+  .politic_link {
+    color: #000;
+  }
+  
+  .checkbox.style {
+    display: flex;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+    /* height: auto; */
+  }
+  .checkbox.style input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkbox.style input:checked ~ .checkbox__checkmark:after {
+    opacity: 1;
+  }
+  .checkbox.style .checkbox__checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+  }
+  .checkbox__body {
+    font-size: 14px;
+  }
+  .checkbox.style .checkbox__checkmark:after {
+    content: "";
+    position: absolute;
+    left: 5.5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #333;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  /* .politic_link {
+    border-bottom : 1px solid;
+  } */
